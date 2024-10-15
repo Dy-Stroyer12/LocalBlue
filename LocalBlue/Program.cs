@@ -7,6 +7,7 @@ using System.Linq;
 using LocalBlue;
 
 var appServiceGuid = new Guid("f6845322-085c-4847-907d-375132a872ab");
+var 
 
 BluetoothListener listener = new BluetoothListener(appServiceGuid);
 listener.ServiceName = "localblue";
@@ -22,10 +23,10 @@ Task.Run(async () =>
         try
         {
             var remoteBridge = listener.AcceptBluetoothClient();
-            RemoteClient remoteClient = new RemoteClient();
+            RemoteClient remoteClient = new1 RemoteClient(remoteBridge);
             Console.WriteLine("Incoming connection accepted.");
 
-            Task.Run(() => HandleIncomingConnection());
+            Task.Run(() => remoteClient.Handle());
         }
         catch (Exception ex)
         {
