@@ -13,7 +13,7 @@ namespace LocalBlue
         public string ClientName { get; set; } = "Unknown";
         public string DeviceAddress { get; set; }
         public BluetoothClient Bridge { get; set; } = new BluetoothClient();
-
+        
         public void Handle()
         {
             try
@@ -47,6 +47,11 @@ namespace LocalBlue
         public RemoteClient(string deviceAddress, BluetoothClient bridge) : base()
         {
             DeviceAddress = deviceAddress;
+            Bridge = bridge;
+        }
+        
+        public RemoteClient(BluetoothClient bridge) : base()
+        {
             Bridge = bridge;
         }
     }
